@@ -1,5 +1,5 @@
 import api from './http';
-
+const modal = weex.requireModule('modal');
 const qs = require('qs');
 export default {
   getShopList(params) {
@@ -12,9 +12,9 @@ export default {
         }]
       }).then((resp) => {
       if (resp.showapi_res_code !== 0) {
-        // modal.toast({
-        //   message:resp.message,
-        // });
+        modal.toast({
+          message: '444'
+        })
         return null;
       }
       return resp.showapi_res_body;
