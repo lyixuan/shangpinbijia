@@ -1,6 +1,14 @@
 <template>
   <div class="wrapper">
-    <text class="greeting">The environment is ready!</text>
+    <div class="demo demo1">
+      <text class="value-text">带有目的地模式的输入框</text>
+      <wxc-searchbar disabled="true"
+                     placeholder="搜索目的地"
+                     mod="hasDep"
+                     dep-name="杭州出发"
+                     @wxcSearchbarDepChooseClicked="wxcSearchbarDepChooseClicked"
+                     @wxcSearchbarInputDisabledClicked="wxcSearchbarInputDisabledClicked"></wxc-searchbar>
+    </div>
     <HomeList/>
   </div>
 </template>
@@ -10,7 +18,7 @@ import HelloWorld from './components/HelloWorld';
 import HomeList from './components/HomeList';
 import api from './service/base';
 import {showapi_appid,showapi_sign} from './config';
-
+import { WxcSearchbar } from 'weex-ui';
 
 export default {
   components: {
@@ -39,6 +47,10 @@ export default {
         console.log(12,resp)
       });
     },
+    wxcSearchbarInputDisabledClicked () {
+    },
+    wxcSearchbarDepChooseClicked () {
+    }
   }
 };
 </script>

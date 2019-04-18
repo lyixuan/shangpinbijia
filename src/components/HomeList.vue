@@ -1,22 +1,20 @@
 <template>
   <div>
-    <wxc-button text="Open Popup"
-                @wxcButtonClicked="buttonClicked">
-    </wxc-button>
-    <wxc-popup width="500"
-               pos="left"
-               :show="isShow"
-               @wxcPopupOverlayClicked="overlayClicked">
-    </wxc-popup>
+    <list>
+      <cell v-for="num in lists">
+        <text>{{num}}</text>
+      </cell>
+    </list>
   </div>
 </template>
 
 <script>
   import { WxcButton, WxcPopup } from 'weex-ui';
+
   module.exports = {
     components: { WxcButton, WxcPopup },
     data: () => ({
-      isShow: false
+      lists: ['A', 'B', 'C', 'D', 'E']
     }),
     methods: {
       buttonClicked () {
